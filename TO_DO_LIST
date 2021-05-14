@@ -1,9 +1,9 @@
 SET UP
 [x]set up database saga_movies_weekend
-[]install dependencies
-    []npm install   
-    []npm run server
-    []npm run client
+[x]install dependencies
+    [x]npm install   
+    [x]npm run server
+    [x]npm run client
 
 [] look over existing code
 
