@@ -9,7 +9,7 @@ SET UP
 
 HOME / LIST PAGE
 
-[] on click function for each movie - history.push to /details/movieid?? - page where shows description of movie clicked
+[x] on click function for each movie - history.push to /details/movieid?? - page where shows description of movie clicked
 [] link / route to add movie page
 
 DETAILS PAGE
@@ -38,5 +38,9 @@ ADD MOVIE PAGE
 ***Hint: You'll want to use the genres that are in the db for your dropdown
 
 
+GENERAL 
 
-
+[]update README
+[]style 
+    []card for movie item
+    []grid for movie list

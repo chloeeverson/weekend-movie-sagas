@@ -19,23 +19,23 @@ function MovieList() {
         <main>
             <h1>MovieList</h1>
             <section className="movies">
-           
+
                 {movies.map(movie => {
-                   
-                        // <MovieItem key={movie.id} movie={movie}/> 
-                    function moveToDetail(){
+
+                    // <MovieItem key={movie.id} movie={movie}/> 
+                    function moveToDetail() {
                         console.log('movie clicked');
                         history.push(`/details/${movie.id}`)
                     }
                     return (
-                        
+
                         <div key={movie.id} >
-                        <h3>{movie.title}</h3>
-                        <img onClick={moveToDetail} src={movie.poster} alt={movie.title}/>
-                        </div> 
+                            <h3>{movie.title}</h3>
+                            <img onClick={moveToDetail} src={movie.poster} alt={movie.title} />
+                        </div>
                     );
                 })}
-                
+
             </section>
         </main>
 
