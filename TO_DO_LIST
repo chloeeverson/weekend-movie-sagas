@@ -1,0 +1,42 @@
+SET UP
+[x]set up database saga_movies_weekend
+[]install dependencies
+    []npm install   
+    []npm run server
+    []npm run client
+
+[] look over existing code
+
+HOME / LIST PAGE
+
+[] on click function for each movie - history.push to /details/movieid?? - page where shows description of movie clicked
+[] link / route to add movie page
+
+DETAILS PAGE
+[]shows details of movie clicked
+    []includes genres for movie
+        [] genre stored in redux to access (similar to category for group project)
+        ***Hint : You can make a GET request for a specific movie. Remember req.params and :id?
+
+[]back to list link /route back to home page
+
+***Base functionality does not require the movie details to load correctly after refresh of the browser.
+
+ADD MOVIE PAGE
+
+[] input field movie title
+[] input field poster url
+[] input textarea movie description
+[] drop down for genres
+
+[]cancel button - brings back to home page
+[]save button - updates title/description to database
+    []brings user back to home page
+
+***Hint: Look at the /api/movie POST route -- it's been made already
+
+***Hint: You'll want to use the genres that are in the db for your dropdown
+
+
+
+
