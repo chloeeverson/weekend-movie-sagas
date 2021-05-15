@@ -1,5 +1,6 @@
-import React, {useState}from 'react';
-import { useDispatch } from 'react-redux';
+import React, {useState, useEffect}from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+
 
 function AddMovie(){
     const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function AddMovie(){
     const submitMovie = (e) => {
         e.preventDefault();
         // send new movie data to saga => reducer => server
-        dispatch({ type: 'ADD_MOVIE', payload: { title: title, description: description }});
+        dispatch({ type: 'ADD_MOVIE', payload: { title: title, poster: poster, description: description }});
 
     }
 
@@ -26,15 +27,17 @@ function AddMovie(){
         <div>
             <h3>Add Movie</h3>
             <form onSubmit={submitMovie}>
-                <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
-                <input type='text' value={poster} onChange={(e) => setPoster(e.target.value)} />
-                <input type='text' value={description} onChange={(e) => setDescription(e.target.value)} />
-                <input type='submit' value='Save' />
+                <input type='text' placeholder='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                <input type='text' placeholder='poster url' value={poster} onChange={(e) => setPoster(e.target.value)} />
+                <input type='text' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)} />
+                <label>Genre:</label>
                 <select>
                     {genres.map(item => {
                         return <option key={item.id} value={item.id}>{item.name}</option>
                     })}
                 </select>
+                <input type='submit' value='Save' />
+                
             </form>
         </div>
     );

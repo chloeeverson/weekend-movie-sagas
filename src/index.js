@@ -15,6 +15,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRES', getGenres);
+    yield takeEvery('ADD_MOVIE', addMovie);
     
 }
 
@@ -41,6 +42,16 @@ function* getGenres(){
     }
         
 }
+
+function* addMovie(action) {
+    try {
+      yield axios.post('/api/movie', action.payload);
+      yield put({ type: 'FETCH_MOVIES' })
+    } catch (error) {
+      console.log(error);
+      alert('Unable to save movie');
+    }
+  }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
