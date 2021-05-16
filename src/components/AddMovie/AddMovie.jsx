@@ -22,7 +22,7 @@ function AddMovie(){
         e.preventDefault();
         // send new movie data to saga => reducer => server
         dispatch({ type: 'ADD_MOVIE', payload: { title: title, poster: poster, description: description }});
-        // dispatch({ type: 'ADD_GENRE', payload: })
+        dispatch({ type: 'ADD_GENRE', payload: {}})
         history.push('/');
     }
 

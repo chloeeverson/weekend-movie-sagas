@@ -16,4 +16,18 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/moviegenre', (req, res) => {
+  // 
+  const queryText = `SELECT * FROM movies_genres`;
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
