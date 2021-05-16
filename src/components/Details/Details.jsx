@@ -10,8 +10,27 @@ function Details() {
 
     //grabbing details from store
     const details = useSelector(store => store.details);
+    const movieGenre = useSelector(store => store.movieGenre);
 
+    movieGenre.map(item => 
+        if (item.movie_id = details[0].id)
 
+        )
+        
+        ('Adventure')
+        ('Animated'),
+        ('Biographical'),
+        ('Comedy'),
+        ('Disaster'),
+        ('Drama'),
+        ('Epic'),
+        ('Fantasy'),
+        ('Musical'),
+        ('Romantic'),         --10
+        ('Science Fiction'),  --11
+        ('Space-Opera'),      --12
+        ('Superhero');        --13
+        
 
 
     useEffect(() => {
@@ -20,26 +39,101 @@ function Details() {
 
     return (
         <div>
-        
-            {/* <p>Details for movie with id of {id}</p> */}
+
             {details[0] == undefined ? (
                 ''
             ) : (
-
-                
-
-                    <>
-                    
-                        <h3>{details[0].title}</h3>
-                        <img src={details[0].poster} />
-                        <h3>{details[0].description}</h3>
-                   </>     
-                
+                <>
+                    <h3>{details[0].title}</h3>
+                    <img src={details[0].poster} />
+                    <h3>{details[0].description}</h3>
+                </>
             )}
 
-
-       
-
+            <ul>Genre:
+            {movieGenre.map(item => {
+                if (item.movie_id == details[0].id){
+                    if (item.genre_id === 1){
+                        return(
+                            <li>Adventure</li>
+                        )
+                        }
+                    else if (item.genre_id === 2){
+                        return(
+                            <li>Animated</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 3){
+                        return(
+                            <li>Biographical</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 4){
+                        return(
+                            <li>Comedy</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 5){
+                        return(
+                            <li>Disaster</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 6){
+                        return(
+                            <li>Drama</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 7){
+                        return(
+                            <li>Epic</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 8){
+                        return(
+                            <li>Fantasy</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 9){
+                        return(
+                            <li>Musical</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 10){
+                        return(
+                            <li>Romantic</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 11){
+                        return(
+                            <li>Science Fiction</li>
+                        )
+                       
+                    }
+                    else if (item.genre_id === 12){
+                        return(
+                            <li>Space-Opera</li>
+                        )
+                       
+                    }
+                    else {
+                        return(
+                            <li>Superhero</li>
+                        )
+                       
+                    }
+                }
+        
+            })}
+            </ul>
         </div>
     )
 
