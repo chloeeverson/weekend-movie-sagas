@@ -1,5 +1,6 @@
 import React, {useState, useEffect}from 'react';
 import { useDispatch, useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 function AddMovie(){
@@ -9,6 +10,7 @@ function AddMovie(){
     let [poster, setPoster] = useState('');
     let [description, setDescription] = useState('');
 
+    const history = useHistory();
     const genres = useSelector(store => store.genres);
 
     useEffect(() => {
@@ -20,7 +22,8 @@ function AddMovie(){
         e.preventDefault();
         // send new movie data to saga => reducer => server
         dispatch({ type: 'ADD_MOVIE', payload: { title: title, poster: poster, description: description }});
-
+        // dispatch({ type: 'ADD_GENRE', payload: })
+        history.push('/');
     }
 
     return (
