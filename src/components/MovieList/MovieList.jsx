@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './MovieList.css'
-// import MovieItem from '../MovieItem/MovieItem';
 
 function MovieList() {
     //create variable to access history function
@@ -29,7 +28,6 @@ function MovieList() {
 
                 {movies.map(movie => {
 
-                    // <MovieItem key={movie.id} movie={movie}/> 
                     
                     return (
 

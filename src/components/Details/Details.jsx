@@ -8,10 +8,9 @@ import React from 'react'
 function Details() {
 
 
-
+    //grabbing details from store
     const details = useSelector(store => store.details);
 
-    // const movies = useSelector(store => store.movies);
 
 
 
@@ -24,7 +23,7 @@ function Details() {
         
             {/* <p>Details for movie with id of {id}</p> */}
             {details[0] == undefined ? (
-                <p>test</p>
+                ''
             ) : (
 
                 
