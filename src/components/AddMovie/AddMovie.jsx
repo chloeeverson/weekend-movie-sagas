@@ -1,6 +1,7 @@
 import React, {useState, useEffect}from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import MovieList from '../MovieList/MovieList';
 
 
 function AddMovie(){
@@ -9,6 +10,7 @@ function AddMovie(){
     let [title, setTitle] = useState('');
     let [poster, setPoster] = useState('');
     let [description, setDescription] = useState('');
+    let [genre, setGenre] = useState(1);
 
     const history = useHistory();
     const genres = useSelector(store => store.genres);
@@ -21,10 +23,10 @@ function AddMovie(){
     const submitMovie = (e) => {
         e.preventDefault();
         // send new movie data to saga => reducer => server
-        dispatch({ type: 'ADD_MOVIE', payload: { title: title, poster: poster, description: description }});
-        dispatch({ type: 'ADD_GENRE', payload: {}})
+        dispatch({ type: 'ADD_MOVIE', payload: { title: title, poster: poster, description: description, genre_id: genre }});
         history.push('/');
     }
+
 
     return (
         <div>
@@ -35,7 +37,7 @@ function AddMovie(){
                 <input type='text' placeholder='poster url' value={poster} onChange={(e) => setPoster(e.target.value)} />
                 <input type='text' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)} />
                 <label>Genre:</label>
-                <select>
+                <select onChange={(e) => setGenre(e.target.value)}>
                     {genres.map(item => {
                         return <option key={item.id} value={item.id}>{item.name}</option>
                     })}

@@ -18,6 +18,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_GENRES', getGenres);
     yield takeEvery('ADD_MOVIE', addMovie);
     yield takeEvery('FETCH_MOVIE_GENRE', getMovieGenre);
+    yield takeEvery('ADD_GENRE', addGenre);
     
 }
 
@@ -73,6 +74,15 @@ function* getMovieGenre(){
 }
 
 function* addMovie(action) {
+    try {
+      yield axios.post('/api/movie', action.payload);
+    } catch (error) {
+      console.log(error);
+      alert('Unable to save movie');
+    }
+}
+
+function* addGenre(action) {
     try {
       yield axios.post('/api/movie', action.payload);
     } catch (error) {
