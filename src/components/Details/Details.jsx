@@ -1,58 +1,50 @@
-import {useParams} from 'react-router-dom';
-import {useSelector, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react'
+
 import React from 'react'
 
 
 function Details() {
-    // const {id} = useParams();
-    
-    // const dispatch = useDispatch();
 
-    // const reduxStore = useSelector(store => store);
-    const movies = useSelector(store => store.movies);
+
+
+    const details = useSelector(store => store.details);
 
     // const movies = useSelector(store => store.movies);
 
-    // function details (){
-    //     for (item of movies){
-    //         if (item.id = {id} ){
-    //             return item.title
-    //         }
-                    
-    //     }
-    // }
 
-    // if item.id = {id} {
-    //     return(
-    //         {item.title}
-    //     )
-    // }
 
     useEffect(() => {
-       console.log('logging details', movies);   
+        console.log('logging details', details);
     }, [])
 
-    return(
+    return (
         <div>
-            {/* {JSON.stringify(reduxStore.details)} */}
+        
             {/* <p>Details for movie with id of {id}</p> */}
-         
-            {/* {details.map((item) => {
-                return (
+            {details[0] == undefined ? (
+                <p>test</p>
+            ) : (
 
-                <div key={item.id}>
-                    <h3>{item.title}</h3>
-                    <img src={item.poster} />
-                    <h3>{item.description}</h3>
-                    <h3>{item.genre}</h3>
-                </div>
-                )
-            })}      */}
+                
+
+                    <>
+                    
+                        <h3>{details[0].title}</h3>
+                        <img src={details[0].poster} />
+                        <h3>{details[0].description}</h3>
+                   </>     
+                
+            )}
+
+
+       
+
         </div>
     )
-    
-    
+
+
 
 }
 
