@@ -15,6 +15,13 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    const moveToDetail = (id) => {
+        console.log('movie clicked');
+        history.push(`/details`)
+        dispatch({ type: 'FETCH_DETAILS', payload: id })
+        
+    }
+
     return (
         <main>
             <h1>MovieList</h1>
@@ -23,15 +30,12 @@ function MovieList() {
                 {movies.map(movie => {
 
                     // <MovieItem key={movie.id} movie={movie}/> 
-                    function moveToDetail() {
-                        console.log('movie clicked');
-                        history.push(`/details/${movie.id}`)
-                    }
+                    
                     return (
 
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img onClick={moveToDetail} src={movie.poster} alt={movie.title} />
+                            <img src={movie.poster} alt={movie.title} onClick={() => moveToDetail(movie.id)} />
                         </div>
                     );
                 })}

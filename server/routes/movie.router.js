@@ -16,6 +16,22 @@ router.get('/', (req, res) => {
 
 });
 
+router.get('/:id', (req, res) => {
+  // get details for specific movie id
+  let reqId = req.params.id;
+  console.log('GET request for id', reqId);
+  let sqlText = 'SELECT * FROM movies WHERE id=$1;';
+  pool.query(sqlText, [reqId])
+    .then((result) => {
+        console.log('details retrieved');
+        res.send(result.rows)
+    })
+    .catch((error) => {
+        console.log(`error getting details from database ${sqlText}`, error);
+        res.sendStatus(500)   
+    })
+});
+
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie

@@ -1,12 +1,16 @@
 import {useParams} from 'react-router-dom';
 import {useSelector, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
+import React from 'react'
 
 
-function Details(){
-    const {id} = useParams();
+function Details() {
+    // const {id} = useParams();
     
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+
+    // const reduxStore = useSelector(store => store);
+    const movies = useSelector(store => store.movies);
 
     // const movies = useSelector(store => store.movies);
 
@@ -26,20 +30,25 @@ function Details(){
     // }
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_DETAILS' })
+       console.log('logging details', movies);   
     }, [])
 
     return(
         <div>
-            {/* {details} */}
-            <p>Details for movie with id of {id}</p>
-            {/* {movies.map(item => {
-                if (item.id = {id}) {
-                return {item.title}
-                
-            }
-                <FavoriteItem key={img.id} img={img} /> 
-            )} */}
+            {/* {JSON.stringify(reduxStore.details)} */}
+            {/* <p>Details for movie with id of {id}</p> */}
+         
+            {/* {details.map((item) => {
+                return (
+
+                <div key={item.id}>
+                    <h3>{item.title}</h3>
+                    <img src={item.poster} />
+                    <h3>{item.description}</h3>
+                    <h3>{item.genre}</h3>
+                </div>
+                )
+            })}      */}
         </div>
     )
     
