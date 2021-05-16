@@ -22,13 +22,14 @@ function AddMovie(){
         e.preventDefault();
         // send new movie data to saga => reducer => server
         dispatch({ type: 'ADD_MOVIE', payload: { title: title, poster: poster, description: description }});
-        // dispatch({ type: 'ADD_GENRE', payload: })
+        dispatch({ type: 'ADD_GENRE', payload: {}})
         history.push('/');
     }
 
     return (
         <div>
             <h3>Add Movie</h3>
+            
             <form onSubmit={submitMovie}>
                 <input type='text' placeholder='title' value={title} onChange={(e) => setTitle(e.target.value)} />
                 <input type='text' placeholder='poster url' value={poster} onChange={(e) => setPoster(e.target.value)} />
