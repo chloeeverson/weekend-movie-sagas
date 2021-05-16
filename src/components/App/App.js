@@ -20,6 +20,9 @@ function App() {
 
         {/* Details page */}
         <Route path="/details">
+        <nav>
+            <Link to="/">Back to List</Link>
+        </nav>
           <Details />
         </Route>
         {/* Add Movie page */}
