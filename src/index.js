@@ -18,8 +18,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_GENRES', getGenres);
     yield takeEvery('ADD_MOVIE', addMovie);
     yield takeEvery('FETCH_MOVIE_GENRE', getMovieGenre);
-    yield takeEvery('ADD_GENRE', addGenre);
-    
+
 }
 
 function* fetchAllMovies() {
@@ -32,64 +31,59 @@ function* fetchAllMovies() {
     } catch {
         console.log('get all error');
     }
-        
+
 }
 
-function* fetchDetails(action){
+function* fetchDetails(action) {
     //fetch movie detail for specific movie id
     try {
         const details = yield axios.get(`/api/movie/${action.payload}`);
         console.log('get details:', details.data);
-        yield put({type: 'SET_DETAILS', payload: details.data});
-        
+        yield put({ type: 'SET_DETAILS', payload: details.data });
+
     } catch (error) {
         alert('Unable to get details from server');
         console.log('ERROR in getting details', error);
-        
-    } 
-} 
+
+    }
+}
 
 
 
-function* getGenres(){
+function* getGenres() {
+    // get all genres from the DB
     try {
         const response = yield axios.get('/api/genre');
-        yield put({type: 'SET_GENRES', payload: response.data});
+        yield put({ type: 'SET_GENRES', payload: response.data });
     } catch (error) {
         alert('Unable to get genres from server');
         console.log('ERROR in getting genres', error);
     }
-        
+
 }
 
-function* getMovieGenre(){
+function* getMovieGenre() {
+    // get all movie_genre combos from the DB
     try {
         const response = yield axios.get('/api/genre/moviegenre');
-        yield put({type: 'SET_MOVIE_GENRE', payload: response.data});
+        yield put({ type: 'SET_MOVIE_GENRE', payload: response.data });
     } catch (error) {
         alert('Unable to get movie-genre from server');
         console.log('ERROR in getting movie-genre', error);
     }
-        
+
 }
 
 function* addMovie(action) {
+    //add new movie to database
     try {
-      yield axios.post('/api/movie', action.payload);
+        yield axios.post('/api/movie', action.payload);
     } catch (error) {
-      console.log(error);
-      alert('Unable to save movie');
+        console.log(error);
+        alert('Unable to save movie');
     }
 }
 
-function* addGenre(action) {
-    try {
-      yield axios.post('/api/movie', action.payload);
-    } catch (error) {
-      console.log(error);
-      alert('Unable to save movie');
-    }
-}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -104,6 +98,7 @@ const movies = (state = [], action) => {
     }
 }
 
+// Used to store details returned from the server
 const details = (state = [], action) => {
     switch (action.type) {
         case 'SET_DETAILS':
@@ -123,6 +118,7 @@ const genres = (state = [], action) => {
     }
 }
 
+// Used to store movie_genre combos from the server
 const movieGenre = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIE_GENRE':
@@ -150,7 +146,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={storeInstance}>
-        <App />
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')

@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
 
 });
 
+//router created for details page for each movie based on movie id
 router.get('/:id', (req, res) => {
   // get details for specific movie id
   let reqId = req.params.id;

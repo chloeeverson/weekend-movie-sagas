@@ -16,6 +16,8 @@ router.get('/', (req, res) => {
     });
 });
 
+//getting movie_genre data from database to store in reducer 
+//and use for rendering genres on detail dom specific to each movie
 router.get('/moviegenre', (req, res) => {
   // 
   const queryText = `SELECT * FROM movies_genres`;

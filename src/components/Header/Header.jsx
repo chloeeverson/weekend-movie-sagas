@@ -1,16 +1,8 @@
-import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
-
-function Header(){
-
-    const [toggle, setToggle] = useState(false)
-    const history = useHistory();
-
-
-    return(
+function Header() {
+    //apply this as header for all views
+    return (
         <>
             <h1>The Movies Saga!</h1>
-            
         </>
     )
 }

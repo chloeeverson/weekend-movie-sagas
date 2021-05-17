@@ -10,28 +10,28 @@ SET UP
 HOME / LIST PAGE
 
 [x] on click function for each movie - history.push to /details/movieid?? - page where shows description of movie clicked
-[] link / route to add movie page
+[x] link / route to add movie page
 
 DETAILS PAGE
-[]shows details of movie clicked
-    []includes genres for movie
-        [] genre stored in redux to access (similar to category for group project)
+[x]shows details of movie clicked
+    [x]includes genres for movie
+        [x] genre stored in redux to access (similar to category for group project)
         ***Hint : You can make a GET request for a specific movie. Remember req.params and :id?
 
-[]back to list link /route back to home page
+[x]back to list link /route back to home page
 
 ***Base functionality does not require the movie details to load correctly after refresh of the browser.
 
 ADD MOVIE PAGE
 
-[] input field movie title
-[] input field poster url
-[] input textarea movie description
-[] drop down for genres
+[x] input field movie title
+[x] input field poster url
+[x] input textarea movie description
+[x] drop down for genres
 
-[]cancel button - brings back to home page
-[]save button - updates title/description to database
-    []brings user back to home page
+[x]cancel button - brings back to home page
+[x]save button - updates title/description to database
+    [x]brings user back to home page
 
 ***Hint: Look at the /api/movie POST route -- it's been made already
 
@@ -40,7 +40,7 @@ ADD MOVIE PAGE
 
 GENERAL 
 
-[]update README
+[x]update README
 []style 
     []card for movie item
     []grid for movie list
